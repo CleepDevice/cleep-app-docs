@@ -1,5 +1,5 @@
 {
-  "version": "2.3.4",
+  "version": "1.2.666",
   "doc": {
     "add_auth_account": {
       "descriptions": {
@@ -10,7 +10,7 @@
         {
           "description": "account name",
           "name": "account",
-          "type": "str",
+          "type": "bool",
           "optional": false,
           "default": null,
           "formats": []
@@ -21,6 +21,14 @@
           "type": "str",
           "optional": false,
           "default": null,
+          "formats": []
+        },
+        {
+          "description": "new param. Defaults to False.",
+          "name": "toto",
+          "type": "bool",
+          "optional": true,
+          "default": false,
           "formats": []
         }
       ],
@@ -142,7 +150,7 @@
       "args": [
         {
           "description": "get non working day for specified year. If not specified use current year. Defaults to None.",
-          "name": "year",
+          "name": "date",
           "type": "int",
           "optional": true,
           "default": null,
@@ -241,6 +249,14 @@
           "description": "day to check (must be iso format XXXX-MM-DD)",
           "name": "day",
           "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "new param",
+          "name": "test",
+          "type": "bool",
           "optional": false,
           "default": null,
           "formats": []
