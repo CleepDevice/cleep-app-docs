@@ -1,0 +1,41 @@
+{
+  "version": "v2.3.0",
+  "doc": {
+    "get_peer_infos": {
+      "descriptions": {
+        "short": "Current peer infos to set at bus init (values must be in string format)",
+        "long": null
+      },
+      "args": [],
+      "returns": [
+        {
+          "description": "infos values (only string supported)",
+          "formats": [
+            "{uuid (string): device uuidversion (string): installed Cleep versionhostname (string): device hostnameport (string): device http portmacs (string): list of mac addressesssl (string): \"0\" if ssl disabled, \"1\" otherwiseauth (str): \"0\" if auth enabled, \"1\" otherwisecleepdesktop (string): \"1\" if device is cleepdesktop, \"0\" otherwiseapps (string): list of installed applicationshwmodel (string): board modelpcbrevision (string): board pcb revisionhwmemory (string): board memory amounthwaudio (string): \"1\" if audio on the boardhwethernet (string): \"1\" if ethernet on the boardhwwireless (string): \"1\" if wireless on the boardhwrevision (string): board revision}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "get_peers": {
+      "descriptions": {
+        "short": "Return all Cleep peers found on the network",
+        "long": null
+      },
+      "args": [],
+      "returns": [
+        {
+          "description": "list of peers",
+          "formats": [
+            "{peer uuid (string): {peer infos formatted fieldsonline (bool): True if peer is onlinepeer_id (string): peer id. Volatile, renewed after device connection},...}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    }
+  }
+}
