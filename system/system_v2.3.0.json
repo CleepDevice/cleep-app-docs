@@ -1,0 +1,539 @@
+{
+  "backup_cleep_config": {
+    "descriptions": {
+      "short": "Backup Cleep configuration files on filesystem",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "True if backup successful",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "clear_logs": {
+    "descriptions": {
+      "short": "Clear logs file",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "True if operation succeed, False otherwise",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "download_logs": {
+    "descriptions": {
+      "short": "Download logs file",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "script full path",
+        "formats": [],
+        "type": "str"
+      }
+    ],
+    "raises": [
+      {
+        "description": "if error occured",
+        "type": "Exception"
+      }
+    ],
+    "deprecated": null
+  },
+  "get_cpu_usage": {
+    "descriptions": {
+      "short": "Return cpu usage for cleep process and system",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "cpu usage",
+        "formats": [
+          "{system (float): system cpu usage percentagecleep (float): cleep cpu usage percentage}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_led_path": {
+    "descriptions": {
+      "short": "Return first existing path in paths",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "list of path to check",
+        "name": "paths",
+        "type": "list",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "found path or None if no path found",
+        "formats": [],
+        "type": "str"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_logs": {
+    "descriptions": {
+      "short": "Return logs file content",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "list of lines from log file",
+        "formats": [
+          "[line1 (str),line2 (str),...]"
+        ],
+        "type": "list"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_memory_usage": {
+    "descriptions": {
+      "short": "Return system memory usage",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "memory usage",
+        "formats": [
+          "{total (int): total memory in bytesavailable (int): available memory in bytesavailablehr (string): human readable available memorycleep (float): cleep process memory in bytes}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_monitoring": {
+    "descriptions": {
+      "short": "Return monitoring configuration",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "True if monitoring is enabled",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_not_renderable_events": {
+    "descriptions": {
+      "short": "Return list of not renderable events",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "list of events to not render",
+        "formats": [
+          "[{event (string): event name,renderer (string): renderer name},...]"
+        ],
+        "type": "list"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_uptime": {
+    "descriptions": {
+      "short": "Return system uptime (in seconds)",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "uptime info",
+        "formats": [
+          "{uptime (int): timestampuptimehr (string): uptime human readble string}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "install_driver": {
+    "descriptions": {
+      "short": "Install specified driver.",
+      "long": "If install succeed, device will reboot after a delay"
+    },
+    "args": [
+      {
+        "description": "driver type",
+        "name": "driver_type",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "driver name",
+        "name": "driver_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "force install (repair). Defaults to False.",
+        "name": "force",
+        "type": "bool",
+        "optional": true,
+        "default": false,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [
+      {
+        "description": "if a parameter is missing",
+        "type": "custom<MissingParameter>"
+      },
+      {
+        "description": "if driver was not found",
+        "type": "custom<InvalidParameter>"
+      },
+      {
+        "description": "if driver already installed",
+        "type": "custom<CommandInfo>"
+      }
+    ],
+    "deprecated": null
+  },
+  "poweroff_device": {
+    "descriptions": {
+      "short": "Poweroff device",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "delay before powering off the device. Defaults to 5.0.",
+        "name": "delay",
+        "type": "float",
+        "optional": true,
+        "default": 5.0,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "reboot_device": {
+    "descriptions": {
+      "short": "Reboot device",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "delay before rebooting the device. Defaults to 5.0.",
+        "name": "delay",
+        "type": "float",
+        "optional": true,
+        "default": 5.0,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "restart_cleep": {
+    "descriptions": {
+      "short": "Restart Cleep",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "delay before restarting the device. Defaults to 3.0.",
+        "name": "delay",
+        "type": "float",
+        "optional": true,
+        "default": 3.0,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "set_cleep_backup_delay": {
+    "descriptions": {
+      "short": "Set Cleep backup delay",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "delay in minutes (5..60)",
+        "name": "delay",
+        "type": "int",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "set_core_debug": {
+    "descriptions": {
+      "short": "Set debug on all core modules",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "enable debug",
+        "name": "debug",
+        "type": "bool",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "set_crash_report": {
+    "descriptions": {
+      "short": "Enable or disable crash report",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "True to enable crash report",
+        "name": "enable",
+        "type": "bool",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [
+      {
+        "description": "if error occured",
+        "type": "custom<CommandError>"
+      }
+    ],
+    "deprecated": null
+  },
+  "set_event_renderable": {
+    "descriptions": {
+      "short": "Set event renderable status",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "renderer name",
+        "name": "renderer_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "event name",
+        "name": "event_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "True to allow event rendering for renderer, False otherwise",
+        "name": "renderable",
+        "type": "bool",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "list of not renderable events",
+        "formats": [
+          "[{event (string): event name,renderer (string): renderer name},...]"
+        ],
+        "type": "list"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "set_module_debug": {
+    "descriptions": {
+      "short": "Set module debug flag",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "module name",
+        "name": "module_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "enable debug",
+        "name": "debug",
+        "type": "bool",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "set_monitoring": {
+    "descriptions": {
+      "short": "Set monitoring flag",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "monitoring flag",
+        "name": "monitoring",
+        "type": "bool",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "set_trace": {
+    "descriptions": {
+      "short": "Set trace (full debug)",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "enable trace",
+        "name": "trace",
+        "type": "bool",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "tweak_activity_led": {
+    "descriptions": {
+      "short": "Tweak raspberry pi activity led",
+      "long": "Note:\n    Infos from https://www.jeffgeerling.com/blogs/jeff-geerling/controlling-pwr-act-leds-raspberry-pi"
+    },
+    "args": [
+      {
+        "description": "True to turn on led",
+        "name": "enable",
+        "type": "bool",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "tweak_power_led": {
+    "descriptions": {
+      "short": "Tweak raspberry pi power led",
+      "long": "Note:\n    Infos from https://www.jeffgeerling.com/blogs/jeff-geerling/controlling-pwr-act-leds-raspberry-pi"
+    },
+    "args": [
+      {
+        "description": "True to turn on led",
+        "name": "enable",
+        "type": "bool",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "uninstall_driver": {
+    "descriptions": {
+      "short": "Uninstall specified driver.",
+      "long": "If uninstall succeed, device will reboot after a delay."
+    },
+    "args": [
+      {
+        "description": "driver type",
+        "name": "driver_type",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "driver name",
+        "name": "driver_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [
+      {
+        "description": "if a parameter is missing",
+        "type": "custom<MissingParameter>"
+      },
+      {
+        "description": "if driver was not found",
+        "type": "custom<InvalidParameter>"
+      },
+      {
+        "description": "if driver is not installed",
+        "type": "custom<CommandInfo>"
+      }
+    ],
+    "deprecated": null
+  }
+}
