@@ -1,0 +1,351 @@
+{
+  "delete_wifi_network_configuration": {
+    "descriptions": {
+      "short": "Delete specified network configuration",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "interface name",
+        "name": "interface_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "network config to delete",
+        "name": "network_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if network deleted",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "disable_active_network_scan": {
+    "descriptions": {
+      "short": "Disable active network scan",
+      "long": null
+    },
+    "args": [],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "disable_wifi_network": {
+    "descriptions": {
+      "short": "Disable wifi network",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "interface name",
+        "name": "interface_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "network name",
+        "name": "network_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if network updated",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "enable_active_network_scan": {
+    "descriptions": {
+      "short": "Enable active network scan. It means application will scan every seconds network",
+      "long": "connectivity.\n\nAs it consumes device ressources, this feature will be automatically\ndisabled after configured amount of time. It can be disabled manually calling\ndisable_active_network_scan."
+    },
+    "args": [],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "enable_wifi_network": {
+    "descriptions": {
+      "short": "Enable wifi network",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "interface name",
+        "name": "interface_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "network name",
+        "name": "network_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if network updated",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "reconfigure_wifi_interface": {
+    "descriptions": {
+      "short": "Reconfigure specified interface",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "interface to reconfigure",
+        "name": "interface_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if command succeed",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "reconfigure_wired_interface": {
+    "descriptions": {
+      "short": "Restart network interface",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "network interface name",
+        "name": "interface_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "refresh_wifi_networks": {
+    "descriptions": {
+      "short": "Scan wifi networks for all connected interfaces",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "found wifi networks",
+        "formats": [
+          "{interface name (string): {network name (string): {interface (string): interface on which wifi network was foundnetwork (string): network name (essid)encryption (string): network encryption (wpa|wpa2|wep|unsecured|unknown)signallevel (float): signal level (in %)configured (bool): True if network has configurationhidden (bool): True if network is hiddendisabled (bool): True if network disabled in configuration},...},...}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "save_wifi_network_configuration": {
+    "descriptions": {
+      "short": "Save wifi network configuration",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "interface name",
+        "name": "interface_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "network to connect interface to",
+        "name": "network_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "encryption type (see WpaSupplicantConf.ENCRYPTION_TYPE_XXX)",
+        "name": "encryption",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "network connection password. Defaults to None.",
+        "name": "password",
+        "type": "str",
+        "optional": true,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "True if network is hidden. Defaults to False.",
+        "name": "hidden",
+        "type": "bool",
+        "optional": true,
+        "default": false,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if connection succeed",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "save_wired_dhcp_configuration": {
+    "descriptions": {
+      "short": "Save wired dhcp configuration",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "interface name",
+        "name": "interface_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "save_wired_static_configuration": {
+    "descriptions": {
+      "short": "Save wired static configuration",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "interface name to configure",
+        "name": "interface_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "desired ip address",
+        "name": "ip_address",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "gateway address",
+        "name": "gateway",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "netmask",
+        "name": "netmask",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "is configuration used as fallback (>=jessie)",
+        "name": "fallback",
+        "type": "bool",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "update_wifi_network_password": {
+    "descriptions": {
+      "short": "Update wifi network configuration",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "interface name",
+        "name": "interface_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "network to connect interface to",
+        "name": "network_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "network connection password",
+        "name": "password",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if update succeed",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  }
+}
