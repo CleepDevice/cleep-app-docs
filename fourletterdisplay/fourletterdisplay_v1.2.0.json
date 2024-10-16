@@ -1,0 +1,131 @@
+{
+  "clear": {
+    "descriptions": {
+      "short": "Clear display",
+      "long": null
+    },
+    "args": [],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "display_message": {
+    "descriptions": {
+      "short": "Display specified message (only 4 chars displayed)",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "message to display",
+        "name": "message",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "enable_night_mode": {
+    "descriptions": {
+      "short": "Enable night mode reducing brightness when sunset event occured.",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "Enable night mode",
+        "name": "enable",
+        "type": "bool",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "set_brightness": {
+    "descriptions": {
+      "short": "Change display brightness",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "brighness value (0..15)",
+        "name": "brightness",
+        "type": "int",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "set_dots": {
+    "descriptions": {
+      "short": "Turn on/off specified dots",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "True to turn on, False to turn off, None to let current state. Defaults to None.",
+        "name": "most_left",
+        "type": "bool",
+        "optional": true,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "True to turn on, False to turn off, None to let current state. Defaults to None.",
+        "name": "middle_left",
+        "type": "bool",
+        "optional": true,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "True to turn on, False to turn off, None to let current state. Defaults to None.",
+        "name": "middle_right",
+        "type": "bool",
+        "optional": true,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "True to turn on, False to turn off, None to let current state. Defaults to None.",
+        "name": "most_right",
+        "type": "bool",
+        "optional": true,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "set_night_mode_brightness": {
+    "descriptions": {
+      "short": "Set nightmode brightness",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "brighness value (0..15)",
+        "name": "brightness",
+        "type": "int",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  }
+}
