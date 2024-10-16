@@ -1,0 +1,152 @@
+{
+  "version": "v1.2.0",
+  "doc": {
+    "add_alarm": {
+      "descriptions": {
+        "short": "Add new alarm",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "time to trigger alarm",
+          "name": "alarm_time",
+          "type": "dict",
+          "optional": false,
+          "default": null,
+          "formats": [
+            "{hour (int): alarm hourminute (int): alarm minute}"
+          ]
+        },
+        {
+          "description": "alarm timeout (in minutes)",
+          "name": "timeout",
+          "type": "int",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "list of days to triger alarm",
+          "name": "days",
+          "type": "dict",
+          "optional": false,
+          "default": null,
+          "formats": [
+            "{mon (bool),tue (bool),wed (bool),thu (bool),fri (bool),sat (bool),sun (bool),}"
+          ]
+        },
+        {
+          "description": "True to enable alarm on non working days",
+          "name": "non_working_days",
+          "type": "bool",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "volume percentage",
+          "name": "volume",
+          "type": "int",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "repeat playlist while it ends",
+          "name": "repeat",
+          "type": "bool",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "shuffle playlist when it restarts",
+          "name": "shuffle",
+          "type": "bool",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "created alarm identifier",
+          "formats": [],
+          "type": "str"
+        }
+      ],
+      "raises": [
+        {
+          "description": "if alarm creation failed",
+          "type": "custom<CommandError>"
+        },
+        {
+          "description": "if parameter is missing",
+          "type": "custom<MissingParameter>"
+        },
+        {
+          "description": "if parameter has invalid value",
+          "type": "custom<InvalidParameter>"
+        }
+      ],
+      "deprecated": null
+    },
+    "remove_alarm": {
+      "descriptions": {
+        "short": "Remove specified alarm",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "alarm identifier",
+          "name": "alarm_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [
+        {
+          "description": "if alarm deletion failed",
+          "type": "custom<CommandError>"
+        },
+        {
+          "description": "if parameter is missing",
+          "type": "custom<MissingParameter>"
+        },
+        {
+          "description": "if parameter has invalid value",
+          "type": "custom<InvalidParameter>"
+        }
+      ],
+      "deprecated": null
+    },
+    "toggle_alarm": {
+      "descriptions": {
+        "short": "Toggle alarm enabling/disabling it",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "alarm identifier",
+          "name": "alarm_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "True if alarm enabled, True if disabled",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    }
+  }
+}
