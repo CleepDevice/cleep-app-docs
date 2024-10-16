@@ -1,0 +1,522 @@
+{
+  "version": "v1.2.0",
+  "doc": {
+    "add_gpio": {
+      "descriptions": {
+        "short": "Add new gpio",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "name of gpio",
+          "name": "name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "selected gpio (\"GPIOX\")",
+          "name": "gpio",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "mode (\"input\"|\"output\")",
+          "name": "mode",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "keep state when restarting",
+          "name": "keep",
+          "type": "bool",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "if true a callback will be triggered on gpio low level instead of high level",
+          "name": "inverted",
+          "type": "bool",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "command request sender (optional)",
+          "name": "command_sender",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "created gpio device",
+          "formats": [
+            "{name (str): name of gpiomode (str): Gpio mode (\"output\"|\"input\")pin (number): Gpio pin numbergpio (str): Gpio id (GPIOX)keep (bool): True if gpio value is stored in config and restored after rebooton (bool): True if gpio is oninverted (bool): Gpio has inverted stateowner (str): Application that owns the gpiotype (str): Always \"gpio\"subtype (str): Same value than mode}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [
+        {
+          "description": "Command failed",
+          "type": "custom<CommandError>"
+        },
+        {
+          "description": "Missing command parameter",
+          "type": "custom<MissingParameter>"
+        },
+        {
+          "description": "Invalid command parameter specified",
+          "type": "custom<InvalidParameter>"
+        }
+      ],
+      "deprecated": null
+    },
+    "delete_gpio": {
+      "descriptions": {
+        "short": "Delete gpio",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "device identifier",
+          "name": "device_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "command sender",
+          "name": "command_sender",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "True if device was deleted, False otherwise",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [
+        {
+          "description": "Command failed",
+          "type": "custom<CommandError>"
+        },
+        {
+          "description": "Missing command parameter",
+          "type": "custom<MissingParameter>"
+        },
+        {
+          "description": "Command cannot be executed by application",
+          "type": "custom<Unauthorized>"
+        },
+        {
+          "description": "Invalid command parameter",
+          "type": "custom<InvalidParameter>"
+        }
+      ],
+      "deprecated": null
+    },
+    "get_assigned_gpios": {
+      "descriptions": {
+        "short": "Return assigned gpios",
+        "long": null
+      },
+      "args": [],
+      "returns": [
+        {
+          "description": "List of gpios",
+          "formats": [
+            "[ \"GPIO3\", \"GPIO5\", ...\u00a0]"
+          ],
+          "type": "list"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "get_pins_number": {
+      "descriptions": {
+        "short": "Return pins number according to board revision",
+        "long": null
+      },
+      "args": [],
+      "returns": [
+        {
+          "description": "pins number",
+          "formats": [],
+          "type": "int"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "get_pins_usage": {
+      "descriptions": {
+        "short": "Return pins usage",
+        "long": null
+      },
+      "args": [],
+      "returns": [
+        {
+          "description": "dict of pins",
+          "formats": [
+            "{pin (int): {label (str): Gpio label (\"GPIOX\"|\"5v\"|\"3.3v\"|\"gnd\"|\"dnc\"),gpio (dict): {assigned (bool): True if gpio assigned,owner (str): gpio application owner or None,}},...}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "get_raspi_gpios": {
+      "descriptions": {
+        "short": "Return available GPIO pins according to board revision",
+        "long": null
+      },
+      "args": [],
+      "returns": [
+        {
+          "description": "Dict of gpios",
+          "formats": [
+            "{\"GPIO1\": 5,\"GPIO1\": 5,...}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "get_reserved_gpios": {
+      "descriptions": {
+        "short": "Return reserved gpios for specified usage",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "gpio reserved usage",
+          "name": "usage",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "list of reserved gpios (full data)",
+          "formats": [
+            "[{gpio: \"GPIO1\",pin: 1,...},...]"
+          ],
+          "type": "list"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "is_gpio_on": {
+      "descriptions": {
+        "short": "Get value of specified gpio. Gpio doesn't have to be declared as device",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "gpio name",
+          "name": "gpio",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "True if gpio is on, False otherwise",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "is_on": {
+      "descriptions": {
+        "short": "Return gpio status (on or off)",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "device identifier",
+          "name": "device_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "True if device is on, False if device is off",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [
+        {
+          "description": "Command failed",
+          "type": "custom<CommandError>"
+        }
+      ],
+      "deprecated": null
+    },
+    "is_reserved_gpio": {
+      "descriptions": {
+        "short": "Return True if gpio is reserved",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "gpio",
+          "name": "gpio",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "True if gpio is reserved, False otherwise",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "reserve_gpio": {
+      "descriptions": {
+        "short": "Reserve a gpio used to configure raspberry pi (ie onewire, lirc...)",
+        "long": "This action only flag this gpio as reserved to avoid using it again"
+      },
+      "args": [
+        {
+          "description": "name of gpio",
+          "name": "name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "gpio value",
+          "name": "gpio",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "describe gpio usage",
+          "name": "usage",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "command request sender (used to set gpio in readonly mode)",
+          "name": "command_sender",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "Created gpio device",
+          "formats": [
+            "{name (str): name of gpiomode (str): Gpio mode (\"output\"|\"input\")pin (number): Gpio pin numbergpio (str): Gpio id (GPIOX)keep (bool): True if gpio value is stored in config and restored after rebooton (bool): True if gpio is oninverted (bool): Gpio has inverted stateowner (str): Application that owns the gpiotype (str): Always \"gpio\"subtype (str): Same value than mode}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [
+        {
+          "description": "Command failed",
+          "type": "custom<CommandError>"
+        },
+        {
+          "description": "Missing command parameter",
+          "type": "custom<MissingParameter>"
+        },
+        {
+          "description": "Invalid command parameter",
+          "type": "custom<InvalidParameter>"
+        }
+      ],
+      "deprecated": null
+    },
+    "reset_gpios": {
+      "descriptions": {
+        "short": "Reset all gpios turning them off",
+        "long": null
+      },
+      "args": [],
+      "returns": [],
+      "raises": [],
+      "deprecated": null
+    },
+    "turn_off": {
+      "descriptions": {
+        "short": "Turn off specified device",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "device identifier",
+          "name": "device_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "True if command executed successfully",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [
+        {
+          "description": "Command failed",
+          "type": "custom<CommandError>"
+        }
+      ],
+      "deprecated": null
+    },
+    "turn_on": {
+      "descriptions": {
+        "short": "Turn on specified device",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "device identifier",
+          "name": "device_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "True if command executed successfully",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [
+        {
+          "description": "Command failed",
+          "type": "custom<CommandError>"
+        }
+      ],
+      "deprecated": null
+    },
+    "update_gpio": {
+      "descriptions": {
+        "short": "Update gpio",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "device identifier",
+          "name": "device_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "gpio name",
+          "name": "name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "keep status flag",
+          "name": "keep",
+          "type": "bool",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "inverted flag",
+          "name": "inverted",
+          "type": "bool",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "command sender",
+          "name": "command_sender",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "updated gpio device",
+          "formats": [
+            "{name (str): name of gpiomode (str): Gpio mode (\"output\"|\"input\")pin (number): Gpio pin numbergpio (str): Gpio id (GPIOX)keep (bool): True if gpio value is stored in config and restored after rebooton (bool): True if gpio is oninverted (bool): Gpio has inverted stateowner (str): Application that owns the gpiotype (str): Always \"gpio\"subtype (str): Same value than mode}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [
+        {
+          "description": "Command failed",
+          "type": "custom<CommandError>"
+        },
+        {
+          "description": "Missing command parameter",
+          "type": "custom<MissingParameter>"
+        },
+        {
+          "description": "Command cannot be executed by application",
+          "type": "custom<Unauthorized>"
+        },
+        {
+          "description": "Invalid command parameter",
+          "type": "custom<InvalidParameter>"
+        }
+      ],
+      "deprecated": null
+    }
+  }
+}
