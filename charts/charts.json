@@ -1,0 +1,109 @@
+{
+  "version": "v1.2.0",
+  "doc": {
+    "get_data": {
+      "descriptions": {
+        "short": "Return data from data table",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "device uuid",
+          "name": "device_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "start of range",
+          "name": "timestamp_start",
+          "type": "int",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "end of range",
+          "name": "timestamp_end",
+          "type": "int",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "command options",
+          "name": "options",
+          "type": "dict",
+          "optional": true,
+          "default": null,
+          "formats": [
+            "{output (string): output format ('list'|'dict'[default])fields (list): list of fields to returnsort (string): sort value ('asc'[default]|'desc')limit (int): limit numberaverage (bool): return average data instead of all ones (default True).Can't work if data other than numbers are stored.}"
+          ]
+        }
+      ],
+      "returns": [
+        {
+          "description": "data",
+          "formats": [
+            "{uuid (string): device uuidevent (string): event namenames (list): list of column namesdata (list|dict): content can be a list or a dict according to options.output value}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [
+        {
+          "description": "if invalid parameter is specified",
+          "type": "custom<InvalidParameter>"
+        },
+        {
+          "description": "if parameter is missing",
+          "type": "custom<MissingParameter>"
+        }
+      ],
+      "deprecated": null
+    },
+    "purge_data": {
+      "descriptions": {
+        "short": "Purge device data until specified time",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "device uuid (string)",
+          "name": "device_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "timestamp to delete data before (int)",
+          "name": "timestamp_until",
+          "type": "int",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "always True",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [
+        {
+          "description": "if parameter is missing",
+          "type": "custom<MissingParameter>"
+        },
+        {
+          "description": "if invalid parameter is specified",
+          "type": "custom<InvalidParameter>"
+        }
+      ],
+      "deprecated": null
+    }
+  }
+}
