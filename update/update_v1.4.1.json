@@ -1,0 +1,259 @@
+{
+  "check_cleep_updates": {
+    "descriptions": {
+      "short": "Check for available cleep updates",
+      "long": "Notes:\n    If GITHUB_TOKEN is referenced in env vars, it will also check pre-releases"
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "last update infos",
+        "formats": [
+          "{version (string): latest update versionchangelog (string): latest update changelogpackageurl (string): latest update package urlchecksumurl (string): latest update checksum url}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "check_modules_updates": {
+    "descriptions": {
+      "short": "Check for modules updates.",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "last modules update infos",
+        "formats": [
+          "{modulesupdates (bool): True if at least one module has an updatemoduleslastcheck (int): last modules update check timestampmarketupdated (bool): True if market updated (front needs to force modules update)}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_cleep_updates": {
+    "descriptions": {
+      "short": "Return cleep update infos",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "Cleep update infos",
+        "formats": [
+          "{updatable (bool): true if new version availableprocessing (bool): true if cleep update is runningpending (bool): true if cleep update has been done and a restart is requiredfailed (bool): True if last update failedversion (string): new available version (format x.x.x) (None if no update)changelog (string): update changelog (None if no update)packageurl (string): package url (None if no update)checksumurl (string): package checksum url (None if no update)}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_logs": {
+    "descriptions": {
+      "short": "Get logs content for specified module or cleep",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "module name. Specify \"cleep\" to retrieve logs for cleep",
+        "name": "module_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_modules_logs": {
+    "descriptions": {
+      "short": "Return all modules logs",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "list of log files",
+        "formats": [
+          "{module name: {timestamp (int)path (string)failed (bool)}...}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_modules_updates": {
+    "descriptions": {
+      "short": "Return list of modules updates",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "list of modules updates",
+        "formats": [
+          "{module name (string): {},...}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "install_module": {
+    "descriptions": {
+      "short": "Install specified module.",
+      "long": "If package is not specified, installation will use infos from modules.json\nIf package is specified, module will be installed using specified file.\nThe package must be a valid application archive built by Cleep."
+    },
+    "args": [
+      {
+        "description": "module name to install",
+        "name": "module_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "module package path. Defaults to None.",
+        "name": "package",
+        "type": "str",
+        "optional": true,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "do not check module compatibility (but only deps compat). Defaults to False.",
+        "name": "no_compatibility_check",
+        "type": "bool",
+        "optional": true,
+        "default": false,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if installation will start",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "set_automatic_update": {
+    "descriptions": {
+      "short": "Set automatic update values",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "enable cleep automatic update",
+        "name": "cleep_update_enabled",
+        "type": "bool",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "enable modules automatic update",
+        "name": "modules_update_enabled",
+        "type": "bool",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "update flags",
+        "formats": [
+          "{cleepupdateenabled (bool): True if cleep update enabledmodulesupdateenabled (bool): True if module update enabled}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "uninstall_module": {
+    "descriptions": {
+      "short": "Uninstall specified module",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "module name to uninstall",
+        "name": "module_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "True to force uninstall even if error occured. Defaults to False.",
+        "name": "force",
+        "type": "bool",
+        "optional": true,
+        "default": false,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "update_cleep": {
+    "descriptions": {
+      "short": "Update Cleep installing debian package",
+      "long": null
+    },
+    "args": [],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "update_module": {
+    "descriptions": {
+      "short": "Update specified module",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "module name to update",
+        "name": "module_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if module update postponed, False otherwise",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "update_modules": {
+    "descriptions": {
+      "short": "Update modules that can be updated. It consists of processing postponed main actions filled",
+      "long": "during module updates check."
+    },
+    "args": [],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  }
+}
