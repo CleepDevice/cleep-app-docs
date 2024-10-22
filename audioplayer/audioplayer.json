@@ -1,0 +1,494 @@
+{
+  "version": "v1.3.0",
+  "doc": {
+    "add_track": {
+      "descriptions": {
+        "short": "Add track in specified player playlist.",
+        "long": "Note:\n    A player with no audio resource in playlist is destroyed so take care to call this command before current audio\n    resource playing is terminated."
+      },
+      "args": [
+        {
+          "description": "player identifier returned by play command",
+          "name": "player_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "local filepath or url",
+          "name": "resource",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "audio format (mime). Mandatory if resource is an url. Defaults to None.",
+          "name": "audio_format",
+          "type": "str",
+          "optional": true,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "add new track to specified playlist position or at end of playlist. Defaults to None.",
+          "name": "track_index",
+          "type": "int",
+          "optional": true,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "True if track added successfully, False if max playlist tracks reached",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [
+        {
+          "description": "if player does not exist",
+          "type": "custom<CommandError>"
+        },
+        {
+          "description": "if parameters are missing",
+          "type": "custom<MissingParameter>"
+        }
+      ],
+      "deprecated": null
+    },
+    "add_tracks": {
+      "descriptions": {
+        "short": "Add multiple tracks at once",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "player identifier",
+          "name": "player_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "list of tracks",
+          "name": "tracks",
+          "type": "list",
+          "optional": false,
+          "default": null,
+          "formats": [
+            "[{resource (string): local filepath or urlaudio_format (string): audio format (mime). Mandatory if resource is an url, can be None if local file.},...]"
+          ]
+        }
+      ],
+      "returns": [],
+      "raises": [
+        {
+          "description": "if player does not exist",
+          "type": "custom<CommandError>"
+        },
+        {
+          "description": "if parameters are missing",
+          "type": "custom<MissingParameter>"
+        },
+        {
+          "description": "if command parameters are invalid",
+          "type": "custom<InvalidParameter>"
+        }
+      ],
+      "deprecated": null
+    },
+    "get_players": {
+      "descriptions": {
+        "short": "Return list of players",
+        "long": null
+      },
+      "args": [],
+      "returns": [
+        {
+          "description": "list of players with current playback info     state (Gst.State): player state     volume (int): player volume",
+          "formats": [
+            "{playeruuid (string): player identifierplayback (dict): current track{resource (string): file/urlaudio_format (string): file format}"
+          ],
+          "type": "list"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "get_playlist": {
+      "descriptions": {
+        "short": "Return player playlist",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "player identifier",
+          "name": "player_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "current playlist",
+          "formats": [
+            "{tracks (list): list of trackscurrent_index (number): current track index (0 is the first playlist track)}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "pause_playback": {
+      "descriptions": {
+        "short": "Toggle pause status for specified player.",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "player identifier",
+          "name": "player_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "force pause. Defaults to False.",
+          "name": "force_pause",
+          "type": "bool",
+          "optional": true,
+          "default": false,
+          "formats": []
+        },
+        {
+          "description": "force play. If both force_pause and force_play are True it toggles current state. Defaults to False.",
+          "name": "force_play",
+          "type": "bool",
+          "optional": true,
+          "default": false,
+          "formats": []
+        },
+        {
+          "description": "if specified set player volume. Defaults to None.",
+          "name": "volume",
+          "type": "int",
+          "optional": true,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "player state as describe in PLAYER_STATES",
+          "formats": [],
+          "type": "str"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "play_next_track": {
+      "descriptions": {
+        "short": "Play next track in specified player playlist",
+        "long": "If there is no next track in playlist, current player playback is stopped and player is destroyed.\nYou will need to call play command again to create new player."
+      },
+      "args": [
+        {
+          "description": "player identifier",
+          "name": "player_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "True if next track playback succeed, False otherwise",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [
+        {
+          "description": "if player does not exist",
+          "type": "custom<CommandError>"
+        }
+      ],
+      "deprecated": null
+    },
+    "play_previous_track": {
+      "descriptions": {
+        "short": "Play previous track in specified player playlist",
+        "long": "If there is no previous track, current playback is restarted"
+      },
+      "args": [
+        {
+          "description": "player identifier",
+          "name": "player_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "True if previous track played successfully, False otherwise",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [
+        {
+          "description": "if command failed",
+          "type": "custom<CommandError>"
+        }
+      ],
+      "deprecated": null
+    },
+    "play_track": {
+      "descriptions": {
+        "short": "Play track at specified index",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "player identifier",
+          "name": "player_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "track index",
+          "name": "track_index",
+          "type": "int",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "True if playback started for specified track index, False otherwise",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "remove_track": {
+      "descriptions": {
+        "short": "Remove track from player playlist",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "player identifier",
+          "name": "player_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "track index (0 is the first playlist track)",
+          "name": "track_index",
+          "type": "int",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [],
+      "deprecated": null
+    },
+    "set_repeat": {
+      "descriptions": {
+        "short": "Repeat playlist when end of it is reached",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "player identifier",
+          "name": "player_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "True to repeat playlist, False otherwise",
+          "name": "repeat",
+          "type": "bool",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "True to shuffle playlist when end is reached. Defaults to False.",
+          "name": "shuffle",
+          "type": "bool",
+          "optional": true,
+          "default": false,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [
+        {
+          "description": "if player does not exist",
+          "type": "custom<CommandError>"
+        }
+      ],
+      "deprecated": null
+    },
+    "set_volume": {
+      "descriptions": {
+        "short": "Set player volume",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "player identifier",
+          "name": "player_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "percentage volume",
+          "name": "volume",
+          "type": "int",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [],
+      "deprecated": null
+    },
+    "shuffle_playlist": {
+      "descriptions": {
+        "short": "Shuffle playlist",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "player identifier",
+          "name": "player_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [],
+      "deprecated": null
+    },
+    "start_playback": {
+      "descriptions": {
+        "short": "Create a player and start playing specified resource",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "local filepath or url",
+          "name": "resource",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "audio format (mime). Mandatory if resource is an url. Defaults to None.",
+          "name": "audio_format",
+          "type": "str",
+          "optional": true,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "player volume. Defaults to 100.",
+          "name": "volume",
+          "type": "int",
+          "optional": true,
+          "default": 100,
+          "formats": []
+        },
+        {
+          "description": "start playback paused. Useful to create player instance in silently. Defaults to False.",
+          "name": "paused",
+          "type": "bool",
+          "optional": true,
+          "default": false,
+          "formats": []
+        },
+        {
+          "description": "enable repeat. Defaults to False.",
+          "name": "repeat",
+          "type": "bool",
+          "optional": true,
+          "default": false,
+          "formats": []
+        },
+        {
+          "description": "True to shuffle playlist at end of it. Defaults to False.",
+          "name": "shuffle",
+          "type": "bool",
+          "optional": true,
+          "default": false,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "player identifier",
+          "formats": [],
+          "type": "str"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "stop_playback": {
+      "descriptions": {
+        "short": "Stop specified player playback and destroy player.",
+        "long": "The player will not be available anymore after the stop command, the playlist is also deleted.\nYou need to call play command to create new player.\nIf you want to keep player alive, prefer using pause command."
+      },
+      "args": [
+        {
+          "description": "player identifier",
+          "name": "player_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [
+        {
+          "description": "if player does not exist",
+          "type": "custom<CommandError>"
+        }
+      ],
+      "deprecated": null
+    }
+  }
+}
