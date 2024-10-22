@@ -1,0 +1,103 @@
+{
+  "add_area": {
+    "descriptions": {
+      "short": "Add area. Typically ground floors heaters are separated from floor heaters, an area controls one fil-pilote line.",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "name of area",
+        "name": "area_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "first gpio (GPIOX)",
+        "name": "gpio1",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "second gpio (GPIOX)",
+        "name": "gpio2",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "created area",
+        "formats": [
+          "{area_name (str): name of areagpio1 (str): gpio1gpio2 (str): gpio2mode (str): area mode (STOP)uuid (str): device uuid}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "delete_area": {
+    "descriptions": {
+      "short": "Delete specified area",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "area uuid",
+        "name": "area_uuid",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if area deleted successfully",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "set_mode": {
+    "descriptions": {
+      "short": "Set area mode",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "area uuid",
+        "name": "area_uuid",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "new mode",
+        "name": "mode",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if mode set sucessfully",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  }
+}
