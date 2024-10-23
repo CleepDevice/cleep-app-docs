@@ -1,0 +1,242 @@
+{
+  "version": "v1.2.0",
+  "doc": {
+    "add_music_file": {
+      "descriptions": {
+        "short": "Add music file to device filesystem",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "uploaded track filepath",
+          "name": "filepath",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "True if upload succeed",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [
+        {
+          "description": "if file extension is not supported",
+          "type": "custom<InvalidParameter>"
+        },
+        {
+          "description": "if adding file failed",
+          "type": "custom<CommandError>"
+        }
+      ],
+      "deprecated": null
+    },
+    "add_playlist": {
+      "descriptions": {
+        "short": "Add new playlist using specified tracks",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "playlist name",
+          "name": "playlist_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "list of files to add into playlist",
+          "name": "files",
+          "type": "list",
+          "optional": false,
+          "default": null,
+          "formats": [
+            "[filename1 (str),filenale2 (str),...]"
+          ]
+        }
+      ],
+      "returns": [],
+      "raises": [
+        {
+          "description": "if playlist already exist",
+          "type": "custom<InvalidParameter>"
+        }
+      ],
+      "deprecated": null
+    },
+    "delete_music_file": {
+      "descriptions": {
+        "short": "Delete music file from device filesystem",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "filename of file to delete",
+          "name": "filename",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [
+        {
+          "description": "if file deletion failed",
+          "type": "custom<CommandError>"
+        }
+      ],
+      "deprecated": null
+    },
+    "delete_playlist": {
+      "descriptions": {
+        "short": "Delete playlist",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "playlist name",
+          "name": "playlist_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [
+        {
+          "description": "if playlist name does not exist",
+          "type": "custom<InvalidParameter>"
+        }
+      ],
+      "deprecated": null
+    },
+    "get_music_files": {
+      "descriptions": {
+        "short": "Get all music files stored in device",
+        "long": null
+      },
+      "args": [],
+      "returns": [
+        {
+          "description": "list of files",
+          "formats": [
+            "[{filename (str): filename,path (str): path},...]"
+          ],
+          "type": "list"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "get_playback": {
+      "descriptions": {
+        "short": "Return playback",
+        "long": null
+      },
+      "args": [],
+      "returns": [
+        {
+          "description": "current playback information",
+          "formats": [
+            "{playeruuid (str): player uuid if running. None if not runningplaylistname (str): current played playlist. None if no playlist playedindex (number): current played playlist track. None if no playlist played}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "play_playlist": {
+      "descriptions": {
+        "short": "Start playback on specified playlist",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "playlist name",
+          "name": "playlist_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [],
+      "deprecated": null
+    },
+    "set_default_playlist": {
+      "descriptions": {
+        "short": "Set default playlist. This is the playlist used to be played",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "playlist name to rename",
+          "name": "playlist_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [
+        {
+          "description": "if playlist name does not exist",
+          "type": "custom<InvalidParameter>"
+        }
+      ],
+      "deprecated": null
+    },
+    "update_playlist": {
+      "descriptions": {
+        "short": "Update playlist content",
+        "long": "Set new_playlist_name to the same value as playlist_name if you don't want to rename it"
+      },
+      "args": [
+        {
+          "description": "playlist name",
+          "name": "playlist_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "new playlist name",
+          "name": "new_playlist_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "list of files to add into playlist",
+          "name": "files",
+          "type": "list",
+          "optional": false,
+          "default": null,
+          "formats": [
+            "[filename1 (str),filename2 (str),...]"
+          ]
+        }
+      ],
+      "returns": [],
+      "raises": [
+        {
+          "description": "if playlist does not exist",
+          "type": "custom<InvalidParameter>"
+        }
+      ],
+      "deprecated": null
+    }
+  }
+}
