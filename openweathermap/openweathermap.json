@@ -1,0 +1,71 @@
+{
+  "version": "v1.3.0",
+  "doc": {
+    "get_forecast": {
+      "descriptions": {
+        "short": "Return last forecast information.",
+        "long": "May be empty if cleep just restarted."
+      },
+      "args": [],
+      "returns": [
+        {
+          "description": "list of forecast data (every 3 hours)",
+          "formats": [
+            "[{maini (dict),weather (dict),clouds (dict),wind (dict),visibility (int),pop (float),rain (dict),sys (dict),},...]"
+          ],
+          "type": "list"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "get_weather": {
+      "descriptions": {
+        "short": "Return current weather conditions",
+        "long": "Useful to use it in action script"
+      },
+      "args": [],
+      "returns": [
+        {
+          "description": "device information",
+          "formats": [
+            "{coord (dict),weather (list),base (str),main (dict),visibility (int),wind (dict),rain (dict),clouds (dict),dt (float),sys (dict),timezone (int),id (int),name (str),cod (int),}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "set_apikey": {
+      "descriptions": {
+        "short": "Set openweathermap apikey",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "OWM apikey",
+          "name": "apikey",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "True if apikey saved successfully",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [
+        {
+          "description": "if error occured while using apikey to get current weather",
+          "type": "custom<CommandError>"
+        }
+      ],
+      "deprecated": null
+    }
+  }
+}
