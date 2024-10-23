@@ -1,0 +1,105 @@
+{
+  "version": "v1.0.0",
+  "doc": {
+    "get_tunnel_info": {
+      "descriptions": {
+        "short": "Returns cleep tunnel info",
+        "long": null
+      },
+      "args": [],
+      "returns": [
+        {
+          "description": "tunnel info or None if tunnel does not exist",
+          "formats": [
+            "{id (str): tunnel identifier,publicurl (str) : tunnel public urlproto (str): tunnel protocal (http|https)metrics (dict): tunnel metrics (see https://ngrok.com/docs/agent/api/#request-2),}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "set_auth_key": {
+      "descriptions": {
+        "short": "Set ngrok agent auth key",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "ngrok auth key",
+          "name": "auth_key",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [
+        {
+          "description": "if authorization failed or error saving config",
+          "type": "custom<CommandError>"
+        }
+      ],
+      "deprecated": null
+    },
+    "set_auto_start": {
+      "descriptions": {
+        "short": "Set auto start",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "True to start tunnel when app starts",
+          "name": "auto_start",
+          "type": "bool",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [
+        {
+          "description": "if error saving config",
+          "type": "custom<CommandError>"
+        }
+      ],
+      "deprecated": null
+    },
+    "start_tunnel": {
+      "descriptions": {
+        "short": "Start tunnel manually",
+        "long": null
+      },
+      "args": [],
+      "returns": [],
+      "raises": [
+        {
+          "description": "if command failed",
+          "type": "custom<CommandError>"
+        },
+        {
+          "description": "if tunnel already exists",
+          "type": "custom<CommandInfo>"
+        }
+      ],
+      "deprecated": null
+    },
+    "stop_tunnel": {
+      "descriptions": {
+        "short": "Stop manually tunnel",
+        "long": null
+      },
+      "args": [],
+      "returns": [],
+      "raises": [
+        {
+          "description": "if command failed",
+          "type": "custom<CommandError>"
+        }
+      ],
+      "deprecated": null
+    }
+  }
+}
