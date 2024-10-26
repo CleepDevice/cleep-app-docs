@@ -1,0 +1,130 @@
+{
+  "version": "v1.2.0",
+  "doc": {
+    "add_sensor": {
+      "descriptions": {
+        "short": "Add sensor according to specified type and subtype",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "sensor type",
+          "name": "sensor_type",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "sensor subtype",
+          "name": "sensor_subtype",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "sensor data (differs from kind of sensor)",
+          "name": "data",
+          "type": "dict",
+          "optional": false,
+          "default": null,
+          "formats": [
+            "{name (str): sensor name,gpio (str): used gpio...}"
+          ]
+        }
+      ],
+      "returns": [
+        {
+          "description": "list of created sensors",
+          "formats": [
+            "[ SensorInstance1, SensorInstance2, ...]"
+          ],
+          "type": "list"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "delete_sensor": {
+      "descriptions": {
+        "short": "Delete specified sensor",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "sensor identifier",
+          "name": "sensor_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "True if deletion succeed",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "get_onewire_devices": {
+      "descriptions": {
+        "short": "Scan for devices connected on 1wire bus",
+        "long": null
+      },
+      "args": [],
+      "returns": [
+        {
+          "description": "list of onewire devices",
+          "formats": [
+            "{device (dict): onewire devicepath (string): device onewire path}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "update_sensor": {
+      "descriptions": {
+        "short": "Update sensor",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "sensor uuid",
+          "name": "sensor_uuid",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "sensor data",
+          "name": "data",
+          "type": "dict",
+          "optional": false,
+          "default": null,
+          "formats": [
+            "{name (str): sensor name,gpio (str): used gpio...}"
+          ]
+        }
+      ],
+      "returns": [
+        {
+          "description": "list of updated sensors",
+          "formats": [
+            "[SensorInstance1, SensorInstance2, ...]"
+          ],
+          "type": "list"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    }
+  }
+}
