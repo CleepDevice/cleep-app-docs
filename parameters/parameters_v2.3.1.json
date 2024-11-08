@@ -1,0 +1,376 @@
+{
+  "add_auth_account": {
+    "descriptions": {
+      "short": "Add new auth account",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "account name",
+        "name": "account",
+        "type": "bool",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "account password (will be encrypted)",
+        "name": "password",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [
+      {
+        "description": "if adding account failed",
+        "type": "custom<CommandError>"
+      }
+    ],
+    "deprecated": null
+  },
+  "delete_auth_account": {
+    "descriptions": {
+      "short": "Delete auth account",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "account name",
+        "name": "account",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [
+      {
+        "description": "if error occured",
+        "type": "custom<CommandError>"
+      }
+    ],
+    "deprecated": null
+  },
+  "disable_auth": {
+    "descriptions": {
+      "short": "Disable auth",
+      "long": null
+    },
+    "args": [],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "enable_auth": {
+    "descriptions": {
+      "short": "Enable auth",
+      "long": null
+    },
+    "args": [],
+    "returns": [],
+    "raises": [
+      {
+        "description": "if error occured",
+        "type": "custom<CommandError>"
+      }
+    ],
+    "deprecated": null
+  },
+  "get_auth_accounts": {
+    "descriptions": {
+      "short": "Return auth accounts",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "list of account names",
+        "formats": [
+          "[account1 (str),account2 (str,...]"
+        ],
+        "type": "list"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_country": {
+    "descriptions": {
+      "short": "Get country from position",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "return country infos",
+        "formats": [
+          "{country (string): country labelalpha2 (string): country code}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_hostname": {
+    "descriptions": {
+      "short": "Return raspi hostname",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "raspberry pi hostname",
+        "formats": [],
+        "type": "str"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_non_working_days": {
+    "descriptions": {
+      "short": "Return non working days of current year",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "get non working day for specified year. If not specified use current year. Defaults to None.",
+        "name": "year",
+        "type": "int",
+        "optional": true,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "list of non working days of the year. List can be empty if error occured",
+        "formats": [
+          "[{datetime (string): non working day (date in iso format YYYY-MM-DD)label (string): english name of non working day},...]"
+        ],
+        "type": "list"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_position": {
+    "descriptions": {
+      "short": "Return device position",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "position coordinates",
+        "formats": [
+          "{latitude (float),longitude (float)}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_sun": {
+    "descriptions": {
+      "short": "Compute sun times",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "sunset/sunrise timestamps",
+        "formats": [
+          "{sunrise (int),sunset (int)}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_time": {
+    "descriptions": {
+      "short": "Return current time",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "current time",
+        "formats": [
+          "{timestamp (int): current timestampiso (string): current datetime in iso 8601 formatyear (int)month (int)day (int)hour (int)minute (int)weekday (int): 0=monday, 1=tuesday... 6=sundayweekday_literal (string): english literal weekday value (monday, tuesday, ...)}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "get_timezone": {
+    "descriptions": {
+      "short": "Return timezone",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "current timezone name",
+        "formats": [],
+        "type": "str"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "is_non_working_day": {
+    "descriptions": {
+      "short": "Check if specified day is non working day according to current locale configuration",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "day to check (must be iso format XXXX-MM-DD)",
+        "name": "day",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if specified day is a non working day, False otherwise",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "is_today_non_working_day": {
+    "descriptions": {
+      "short": "Check if today is non working day according to current locale configuration",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "True if specified day is a non working day, False otherwise",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "set_country": {
+    "descriptions": {
+      "short": "Compute country (and associated alpha) from current internal position",
+      "long": "Warning:\n    This function can take some time to find country info on slow device like raspi 1st generation (~15secs)"
+    },
+    "args": [],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "set_hostname": {
+    "descriptions": {
+      "short": "Set raspi hostname",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "hostname",
+        "name": "hostname",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if hostname saved successfully, False otherwise",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [
+      {
+        "description": "if hostname has invalid format",
+        "type": "custom<InvalidParameter>"
+      }
+    ],
+    "deprecated": null
+  },
+  "set_position": {
+    "descriptions": {
+      "short": "Set device position",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "latitude",
+        "name": "latitude",
+        "type": "float",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "longitude",
+        "name": "longitude",
+        "type": "float",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [],
+    "raises": [
+      {
+        "description": "if error occured during position saving",
+        "type": "custom<CommandError>"
+      }
+    ],
+    "deprecated": null
+  },
+  "set_sun": {
+    "descriptions": {
+      "short": "\"",
+      "long": "Compute sun times (sunrise and sunset) according to configured position"
+    },
+    "args": [],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "set_timezone": {
+    "descriptions": {
+      "short": "Set timezone according to coordinates",
+      "long": null
+    },
+    "args": [],
+    "returns": [
+      {
+        "description": "True if function succeed, False otherwise",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [
+      {
+        "description": "if unable to save timezone",
+        "type": "custom<CommandError>"
+      }
+    ],
+    "deprecated": null
+  }
+}
