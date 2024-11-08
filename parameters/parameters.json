@@ -22,14 +22,6 @@
           "optional": false,
           "default": null,
           "formats": []
-        },
-        {
-          "description": "new param. Defaults to False.",
-          "name": "toto",
-          "type": "bool",
-          "optional": true,
-          "default": false,
-          "formats": []
         }
       ],
       "returns": [],
@@ -150,7 +142,7 @@
       "args": [
         {
           "description": "get non working day for specified year. If not specified use current year. Defaults to None.",
-          "name": "date",
+          "name": "year",
           "type": "int",
           "optional": true,
           "default": null,
@@ -249,14 +241,6 @@
           "description": "day to check (must be iso format XXXX-MM-DD)",
           "name": "day",
           "type": "str",
-          "optional": false,
-          "default": null,
-          "formats": []
-        },
-        {
-          "description": "new param",
-          "name": "test",
-          "type": "bool",
           "optional": false,
           "default": null,
           "formats": []
