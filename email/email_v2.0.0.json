@@ -1,0 +1,183 @@
+{
+  "send_email": {
+    "descriptions": {
+      "short": "Send test email",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "email subject",
+        "name": "subject",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "email content. Html or text. Content will be always embedded in base html tags.",
+        "name": "content",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "coma separated recipients",
+        "name": "recipient",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "coma separated carbon copy recipients. Defaults to None.",
+        "name": "cc",
+        "type": "str",
+        "optional": true,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "coma separated blind carbon copy recipients. Defaults to None.",
+        "name": "bcc",
+        "type": "str",
+        "optional": true,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "list of attachments. Must be filepaths. Defaults to None.",
+        "name": "attachments",
+        "type": "list",
+        "optional": true,
+        "default": null,
+        "formats": [
+          "( filepath1, filepath2, ...)"
+        ]
+      },
+      {
+        "description": "overwrite default sender. Defaults to None",
+        "name": "sender",
+        "type": "str",
+        "optional": true,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if message sent successfully. Nonetheless email may returned in error afterwards.",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "set_config": {
+    "descriptions": {
+      "short": "Set configuration",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "choosen provider from list",
+        "name": "provider",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "custom smtp server address",
+        "name": "server",
+        "type": "str",
+        "optional": true,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "smtp server port",
+        "name": "port",
+        "type": "int",
+        "optional": true,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "login to connect to custom smtp server",
+        "name": "login",
+        "type": "str",
+        "optional": true,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "password to connect to custom smtp server",
+        "name": "password",
+        "type": "str",
+        "optional": true,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "TLS option. Defaults to False.",
+        "name": "tls",
+        "type": "bool",
+        "optional": true,
+        "default": false,
+        "formats": []
+      },
+      {
+        "description": "SSL option. Defaults to False.",
+        "name": "ssl",
+        "type": "bool",
+        "optional": true,
+        "default": false,
+        "formats": []
+      },
+      {
+        "description": "email sender",
+        "name": "sender",
+        "type": "str",
+        "optional": true,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if config saved successfully",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  },
+  "test": {
+    "descriptions": {
+      "short": "Send email test according to current configuration",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "coma separated recipients",
+        "name": "recipient",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if test email sent successfully",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [],
+    "deprecated": null
+  }
+}
