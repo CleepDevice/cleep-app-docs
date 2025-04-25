@@ -32,7 +32,7 @@
           "formats": []
         },
         {
-          "description": "coma separated carbon copy recipients. Defaults to None.",
+          "description": "coma separated carbon copy recipients. Defaults to None",
           "name": "cc",
           "type": "str",
           "optional": true,
@@ -40,7 +40,7 @@
           "formats": []
         },
         {
-          "description": "coma separated blind carbon copy recipients. Defaults to None.",
+          "description": "coma separated blind carbon copy recipients. Defaults to None",
           "name": "bcc",
           "type": "str",
           "optional": true,
@@ -48,7 +48,7 @@
           "formats": []
         },
         {
-          "description": "list of attachments. Must be filepaths. Defaults to None.",
+          "description": "list of attachments. Must be filepaths. Defaults to None",
           "name": "attachments",
           "type": "list",
           "optional": true,
@@ -155,7 +155,7 @@
         }
       ],
       "raises": [],
-      "deprecated": null
+      "deprecated": "replaced by other_function"
     },
     "test": {
       "descriptions": {
