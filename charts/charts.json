@@ -1,6 +1,25 @@
 {
-  "version": "v1.2.0",
+  "version": "1.1.5",
   "doc": {
+    "event_received": {
+      "descriptions": {
+        "short": "Event received, stored sensor data if possible",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "event",
+          "name": "event",
+          "type": "custom<MessageRequest>",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [],
+      "deprecated": null
+    },
     "get_data": {
       "descriptions": {
         "short": "Return data from data table",
@@ -35,7 +54,7 @@
           "description": "command options",
           "name": "options",
           "type": "dict",
-          "optional": true,
+          "optional": false,
           "default": null,
           "formats": [
             "{output (string): output format ('list'|'dict'[default])fields (list): list of fields to returnsort (string): sort value ('asc'[default]|'desc')limit (int): limit numberaverage (bool): return average data instead of all ones (default True).Can't work if data other than numbers are stored.}"
