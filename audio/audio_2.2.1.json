@@ -1,0 +1,92 @@
+{
+  "select_device": {
+    "descriptions": {
+      "short": "Select audio device",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "driver name",
+        "name": "driver_name",
+        "type": "str",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "True if device saved successfully",
+        "formats": [],
+        "type": "bool"
+      }
+    ],
+    "raises": [
+      {
+        "description": "if parameter is invalid",
+        "type": "custom<InvalidParameter>"
+      }
+    ],
+    "deprecated": null
+  },
+  "set_volumes": {
+    "descriptions": {
+      "short": "Update volume",
+      "long": null
+    },
+    "args": [
+      {
+        "description": "playback volume percentage",
+        "name": "playback",
+        "type": "int",
+        "optional": false,
+        "default": null,
+        "formats": []
+      },
+      {
+        "description": "capture volume percentage",
+        "name": "capture",
+        "type": "int",
+        "optional": false,
+        "default": null,
+        "formats": []
+      }
+    ],
+    "returns": [
+      {
+        "description": "current volume",
+        "formats": [
+          "{playback (int): playback volumecapture (int): capture volume}"
+        ],
+        "type": "dict"
+      }
+    ],
+    "raises": [
+      {
+        "description": "if parameter is invalid",
+        "type": "custom<InvalidParameter>"
+      }
+    ],
+    "deprecated": null
+  },
+  "test_playing": {
+    "descriptions": {
+      "short": "Play test sound to make sure audio card is correctly configured",
+      "long": null
+    },
+    "args": [],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  },
+  "test_recording": {
+    "descriptions": {
+      "short": "Record sound during few seconds and play it",
+      "long": null
+    },
+    "args": [],
+    "returns": [],
+    "raises": [],
+    "deprecated": null
+  }
+}
