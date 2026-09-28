@@ -1,0 +1,295 @@
+{
+  "version": "3.2.0",
+  "doc": {
+    "build_application": {
+      "descriptions": {
+        "short": "Build application archive (zip format)",
+        "long": "Archive is not protected by password"
+      },
+      "args": [
+        {
+          "description": "module name",
+          "name": "module_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [
+        {
+          "description": "if build failed",
+          "type": "Exception"
+        }
+      ],
+      "deprecated": null
+    },
+    "check_application": {
+      "descriptions": {
+        "short": "Check application content",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "module name",
+          "name": "module_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "archive infos",
+          "formats": [
+            "{url (string): archive url,name (string): archive name (usually name of module)}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "create_application": {
+      "descriptions": {
+        "short": "Create new application skel",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "module name",
+          "name": "module_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [
+        {
+          "description": "if command failed",
+          "type": "custom<CommandError>"
+        }
+      ],
+      "deprecated": null
+    },
+    "detect_breaking_changes": {
+      "descriptions": {
+        "short": "Compute and return breaking changes",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "module name",
+          "name": "module_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "breaking changes",
+          "formats": [
+            "{errors (list): list of breaking changes,warnings (list): list of warnings,breaking_changes (bool): True if breaking changes detected,}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "download_api_documentation": {
+      "descriptions": {
+        "short": "Download API documentation (html as archive tar.gz)",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "module name",
+          "name": "module_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "archive infos",
+          "formats": [
+            "{data: filepathfilename: new filename}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [
+        {
+          "description": "command failed error",
+          "type": "custom<CommandError>"
+        }
+      ],
+      "deprecated": null
+    },
+    "download_application": {
+      "descriptions": {
+        "short": "Download latest generated application package",
+        "long": null
+      },
+      "args": [],
+      "returns": [
+        {
+          "description": "archive infos",
+          "formats": [
+            "{filepath (string): filepathfilename (string): filename}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "generate_api_documentation": {
+      "descriptions": {
+        "short": "Generate API documentation",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "module name",
+          "name": "module_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [],
+      "deprecated": null
+    },
+    "generate_documentation": {
+      "descriptions": {
+        "short": "Generate documentation of specified module",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "module name",
+          "name": "module_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "documentation and check results",
+          "formats": [
+            "{valid (bool): True if general documentation is valid, False otherwisedoc (dict): documentation outputcheck (dict): documentation check output}"
+          ],
+          "type": "dict"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    },
+    "get_last_coverage_report": {
+      "descriptions": {
+        "short": "Return last coverage report",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "module name",
+          "name": "module_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [],
+      "deprecated": null
+    },
+    "launch_tests": {
+      "descriptions": {
+        "short": "Launch unit tests",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "module name",
+          "name": "module_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [],
+      "deprecated": null
+    },
+    "restart_frontend": {
+      "descriptions": {
+        "short": "Send event to restart frontend",
+        "long": null
+      },
+      "args": [],
+      "returns": [],
+      "raises": [],
+      "deprecated": null
+    },
+    "select_application_for_development": {
+      "descriptions": {
+        "short": "Select application for development. It save in config the module, and enable debug.",
+        "long": "It also disables debug on previous module in debug if any."
+      },
+      "args": [
+        {
+          "description": "module to enable development on, None to disable development mode",
+          "name": "module_name",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [],
+      "deprecated": null
+    },
+    "valid_json": {
+      "descriptions": {
+        "short": "Return True if string seems to be valid json. Useful to filter command output",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "string to check",
+          "name": "string",
+          "type": "str",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [
+        {
+          "description": "True if string seems to be valid json",
+          "formats": [],
+          "type": "bool"
+        }
+      ],
+      "raises": [],
+      "deprecated": null
+    }
+  }
+}
