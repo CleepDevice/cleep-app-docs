@@ -1,5 +1,5 @@
 {
-  "version": "v1.3.0",
+  "version": "1.4.0",
   "doc": {
     "add_track": {
       "descriptions": {
@@ -109,9 +109,9 @@
       "args": [],
       "returns": [
         {
-          "description": "list of players with current playback info     state (Gst.State): player state     volume (int): player volume",
+          "description": "list of players with current playback info [     {         playeruuid (string): player identifier         playback (dict): current track             ,     ... ]",
           "formats": [
-            "{playeruuid (string): player identifierplayback (dict): current track{resource (string): file/urlaudio_format (string): file format}"
+            "{resource (string): file/urlaudio_format (string): file format}state (string): player statevolume (int): player volume}"
           ],
           "type": "list"
         }
@@ -149,7 +149,7 @@
     "pause_playback": {
       "descriptions": {
         "short": "Toggle pause status for specified player.",
-        "long": null
+        "long": "Player stays alive: resume is fast (no playbin rebuild).\nIf resume fails, playbin is automatically recreated and position restored."
       },
       "args": [
         {
@@ -305,6 +305,33 @@
         {
           "description": "track index (0 is the first playlist track)",
           "name": "track_index",
+          "type": "int",
+          "optional": false,
+          "default": null,
+          "formats": []
+        }
+      ],
+      "returns": [],
+      "raises": [],
+      "deprecated": null
+    },
+    "set_fade": {
+      "descriptions": {
+        "short": "Configure default fade durations",
+        "long": null
+      },
+      "args": [
+        {
+          "description": "fade-in duration in milliseconds (0 disables)",
+          "name": "fade_in_ms",
+          "type": "int",
+          "optional": false,
+          "default": null,
+          "formats": []
+        },
+        {
+          "description": "fade-out duration in milliseconds (0 disables)",
+          "name": "fade_out_ms",
           "type": "int",
           "optional": false,
           "default": null,
